@@ -1,0 +1,53 @@
+@import "../../utils";
+
+table {
+    margin-top: 10em; // for dev
+    width: 100%;
+    border-collapse: collapse;
+    font-size: clamp(0.9rem, 0.75rem + 4vw, 1rem);
+}
+
+tr {
+    border-bottom: 1px solid $light-gray;
+}
+
+th,
+td {
+    padding: 1em 0;
+    color: $black;
+    font-weight: 500;
+    text-align: center;
+
+    &:nth-child(4),
+    &:nth-child(6),
+    &:nth-child(7),
+    &:nth-child(8),
+    &:nth-child(10) {
+        display: none;
+    }
+}
+
+td {
+    font-weight: 400;
+}
+
+.no-sort {
+    color: $gray;
+}
+
+@media (min-width: 30em) {
+    table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        &:nth-child(4),
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(10) {
+            display: table-cell;
+        }
+    }
+}

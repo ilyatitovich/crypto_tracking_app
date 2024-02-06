@@ -1,0 +1,36 @@
+@import "utils";
+
+:root {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+body {
+    width: 100vw;
+    color: $black;
+    font-size: clamp(1rem, 0.75rem + 4vw, 1.25rem);
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    overflow-x: hidden;
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 0.5em;
+}
+
+
