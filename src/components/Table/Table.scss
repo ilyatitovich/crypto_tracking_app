@@ -4,23 +4,30 @@ table {
     margin-top: 10em; // for dev
     width: 100%;
     border-collapse: collapse;
-    font-size: clamp(0.5rem, 0.5rem + 3vw, .9rem);
+    font-size: clamp(0.5rem, 0.5rem + 3vw, 0.9rem);
 }
 
 tr {
     border-bottom: 1px solid $light-gray;
 }
 
-th:hover {
+th {
     cursor: pointer;
+    color: $gray;
+    transition: all 0.3s ease-in-out;
+
+    &:nth-child(2) {
+        text-align: left;
+    }
+}
+
+th:hover {
     color: $black;
-    transition: all .3s ease-in-out;
 }
 
 th,
 td {
-    padding: 1em .75em;
-    color: $black;
+    padding: 1em 0.75em;
     font-weight: 500;
     text-align: right;
     min-width: 48px;
@@ -38,13 +45,8 @@ td {
     font-weight: 400;
 }
 
-.coin {
-    text-align: left;
-    // width: 2em;
-}
-
-.no-sort {
-    color: $gray;
+.sort {
+    color: $black;
 }
 
 @media (min-width: 50em) {

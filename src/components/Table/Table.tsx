@@ -1,40 +1,56 @@
 import "./Table.scss";
 import { CurrencyData } from "../../lib/types";
 import { useState } from "react";
+import { checkDirectionAndSort } from "../../lib/utils";
 import CurrencyRow from "../CurrencyRow";
+
+const tableHeaders = [
+    "#",
+    "Coin",
+    "Price",
+    "1h",
+    "24h",
+    "7d",
+    "30d",
+    "24h Volume",
+    "Market Cap",
+];
 
 export default function Table({ data }: { data: CurrencyData[] }) {
     const [listOfCurrencies, setListOfCurrencies] =
         useState<CurrencyData[]>(data);
 
-    function sortBy(value: string) {
-        let sortedList;
+    const [selectedForSort, setSelectedForSort] = useState(0);
 
-        switch (value) {
-            case "index":
-                sortedList = [...listOfCurrencies].reverse();
-                break;
-            default:
-                sortedList = listOfCurrencies;
+    function handleSort(header: number) {
+        const copyOfList = [...listOfCurrencies];
+        let newList;
+
+        if (header === selectedForSort) {
+            newList = copyOfList.reverse();
+        } else {
+            newList = checkDirectionAndSort(header, copyOfList);
+            setSelectedForSort(header);
         }
 
-        setListOfCurrencies(sortedList);
+        setListOfCurrencies(newList!);
     }
 
     return (
         <table>
             <thead>
                 <tr>
-                    <th onClick={() => sortBy("index")}>#</th>
-                    <th onClick={() => sortBy("name")} className="no-sort coin">Coin</th>
-                    <th className="no-sort">Price</th>
-                    <th className="no-sort">1h</th>
-                    <th className="no-sort">24h</th>
-                    <th className="no-sort">7d</th>
-                    <th className="no-sort">30d</th>
-                    <th className="no-sort">24h Volume</th>
-                    <th className="no-sort">Market Cap</th>
-                    <th className="no-sort">Last 7 Days</th>
+                    {tableHeaders.map((header, index) => (
+                        <th
+                            onClick={() => {
+                                handleSort(index);
+                            }}
+                            className={selectedForSort === index ? "sort" : ""}
+                        >
+                            {header}
+                        </th>
+                    ))}
+                    <th>Last 7 Days</th>
                 </tr>
             </thead>
             <tbody>

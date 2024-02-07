@@ -1,5 +1,6 @@
 import "./CurrencyRow.scss";
 import { CurrencyData } from "../lib/types";
+import { Link } from "react-router-dom";
 import PriceChangePercentage from "./PriceChangePercentage/PriceChangePercentage";
 
 interface CurrencyRowProps {
@@ -9,6 +10,7 @@ interface CurrencyRowProps {
 
 export default function CurrencyRow({ num, currencyData }: CurrencyRowProps) {
     const {
+        id,
         name,
         symbol,
         image,
@@ -23,13 +25,17 @@ export default function CurrencyRow({ num, currencyData }: CurrencyRowProps) {
 
     return (
         <tr className="currency-row">
-            <td><span className="num">{num}</span></td>
             <td>
-                <div className="logo">
-                    <img src={image} alt={name} />
-                    <span className="name">{name}</span>
-                    <span className="symbol">{symbol.toUpperCase()}</span>
-                </div>
+                <span className="num">{num}</span>
+            </td>
+            <td>
+                <Link to={`coins/${id}`}>
+                    <div className="logo">
+                        <img src={image} alt={name} />
+                        <span className="name">{name}</span>
+                        <span className="symbol">{symbol.toUpperCase()}</span>
+                    </div>
+                </Link>
             </td>
             <td>${current_price.toLocaleString("eu")}</td>
             <td>
