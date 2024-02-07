@@ -1,0 +1,29 @@
+@import "../utils";
+
+.currency-row {
+
+    .num {
+        // max-width: 1em;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: .2em;
+
+            img {
+                width: 1.5em;
+            }
+
+            .name {
+                margin-left: .3em;
+            }
+
+            .symbol {
+                font-size: 0.8em;
+                font-weight: bold;
+                color: $gray;
+            }
+    }
+}

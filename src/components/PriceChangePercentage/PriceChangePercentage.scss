@@ -1,0 +1,15 @@
+@import "../../utils";
+
+.price-change-percentage {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.25em;
+}
+
+.up {
+    color: $green;
+}
+
+.down {
+    color: $red;
+}

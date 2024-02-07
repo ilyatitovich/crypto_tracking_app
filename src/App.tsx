@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home/Home";
+import Home, {loader as homeLoader} from "./pages/Home/Home";
 import Root from "./pages/Root/Root";
 import Error404 from "./pages/Error404/Error404";
 
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
           {
               index: true,
               element: <Home />,
-              // loader: homeLoader,
+              loader: homeLoader,
           },
      
       ],
