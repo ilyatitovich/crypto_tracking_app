@@ -15,7 +15,7 @@
 body {
     width: 100vw;
     color: $black;
-    font-size: clamp(1rem, 0.75rem + 4vw, 1.25rem);
+    font-size: clamp(.8rem, 0.3rem + 4vw, 1rem);
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-weight: normal;
     overflow-x: hidden;
@@ -29,8 +29,11 @@ a {
 .container {
     width: 100%;
     max-width: 1200px;
-    margin: auto;
+    margin: 10em auto;
     padding: 0 0.5em;
 }
 
+ul, li {
+    list-style: none;
+}
 

@@ -42,6 +42,7 @@ export default function Table({ data }: { data: CurrencyData[] }) {
                 <tr>
                     {tableHeaders.map((header, index) => (
                         <th
+                            key={header}
                             onClick={() => {
                                 handleSort(index);
                             }}

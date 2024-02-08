@@ -1,0 +1,109 @@
+@import "../../utils";
+
+// desktop styles
+
+.currency-info-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0.7fr 1.2fr;
+    grid-template-rows: 0.2fr 0.5fr 1.5fr 1.8fr;
+    gap: 0.25em;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "currency-name nav"
+        "logo graph"
+        "info graph"
+        "info about";
+
+    .row {
+        padding: 0.5em 0;
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+    }
+
+    .cell {
+        padding: 1em 1em;
+        background-color: rgb(228, 228, 228);
+    }
+
+    .currency-name {
+        grid-area: currency-name;
+        color: $gray;
+        
+        .wrapper {
+            gap: .8em;
+        }
+
+        a {
+            color: $black;
+        }
+
+        .icon {
+            font-size: .8em;
+        }
+    }
+
+    .nav {
+        grid-area: nav;
+        
+
+        ul {
+            display: flex;
+            gap: 1em;
+        }
+    }
+
+    .graph {
+        grid-area: graph;
+    }
+
+    .logo {
+        grid-area: logo;
+
+        .header {
+            color: $gray;
+
+            .name {
+                color: $black;
+            }
+
+            .rank {
+                padding: 0.25em;
+                border-radius: 0.25em;
+                color: $black;
+                background-color: rgb(221, 221, 221);
+            }
+        }
+
+        .price-info {
+            .price {
+                font-size: 2.4rem;
+                font-weight: bold;
+            }
+
+            .changes {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .info {
+        grid-area: info;
+
+        .market-info {
+
+            .row {
+                padding: 1.4em 0;
+                justify-content: space-between;
+                border-bottom: 1px solid;
+
+                .amount {
+                    font-weight: bold;
+                    color: $black;
+                }
+            }
+        }
+    }
+}

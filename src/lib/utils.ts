@@ -39,15 +39,15 @@ export function checkDirectionAndSort(
     }
 }
 
-export async function getMarketData(
+export async function getDataFromGecoAPI(
     url: string
-): Promise<CurrencyData[] | null> {
+): Promise<unknown | null> {
     try {
-        const response: AxiosResponse<CurrencyData[]> = await axios.get(url);
+        const response: AxiosResponse<unknown> = await axios.get(url);
         return response.data;
     } catch (error) {
         console.error(
-            "Error occurred while fetching market data:",
+            "Error occurred while fetching data:",
             (error as Error).message
         );
         throw error;

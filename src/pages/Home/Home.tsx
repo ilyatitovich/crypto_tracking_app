@@ -1,6 +1,6 @@
 import "./Home.scss";
 import { CurrencyData } from "../../lib/types";
-import { getMarketData } from "../../lib/utils";
+import { getDataFromGecoAPI } from "../../lib/utils";
 import { useLoaderData } from "react-router-dom";
 import Table from "../../components/Table/Table";
 
@@ -9,8 +9,8 @@ const API_URL =
 
 // eslint-disable-next-line react-refresh/only-export-components
 export async function loader() {
-    const data = await getMarketData(API_URL);
-    const marketData = data!.map((obj, index) => ({
+    const data = await getDataFromGecoAPI(API_URL) as Array<object>;
+    const marketData = data!.map((obj: object, index: number) => ({
         ...obj,
         index: index + 1,
     }));
